@@ -9,9 +9,10 @@ Rails.application.config.action_controller.forgery_protection_origin_check = fal
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'https://thousand-year-chronicler.netlify.app'
+    Access-Control-Allow-Origin: http://localhost:3000
 
     resource '*',
-      headers: :any,
+      headers: :any, Access-Control-Allow-Credentials: true,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
       credentials: true
   end
